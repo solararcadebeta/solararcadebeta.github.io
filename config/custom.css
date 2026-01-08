@@ -1,0 +1,41 @@
+/* ===== Infinite Craft–style background ===== */
+
+html, body {
+  height: 100%;
+}
+
+body {
+  background:
+    radial-gradient(1200px 800px at 20% 10%, #e9f1ff 0%, transparent 60%),
+    radial-gradient(900px 700px at 80% 20%, #fff1e6 0%, transparent 60%),
+    radial-gradient(1000px 800px at 50% 80%, #eefbe7 0%, transparent 65%),
+    linear-gradient(180deg, #f8f9fb 0%, #f2f4f8 100%);
+  background-attachment: fixed;
+  overflow-x: hidden;
+  position: relative;
+}
+
+/* floating soft blobs */
+body::before,
+body::after {
+  content: "";
+  position: fixed;
+  inset: -20%;
+  z-index: -1;
+  background:
+    radial-gradient(circle at 30% 40%, rgba(120,170,255,0.15), transparent 50%),
+    radial-gradient(circle at 70% 60%, rgba(255,180,120,0.15), transparent 55%),
+    radial-gradient(circle at 50% 50%, rgba(150,220,170,0.12), transparent 60%);
+  animation: craftFloat 60s linear infinite;
+}
+
+body::after {
+  animation-duration: 90s;
+  animation-direction: reverse;
+}
+
+@keyframes craftFloat {
+  0%   { transform: translate(0, 0) scale(1); }
+  50%  { transform: translate(-6%, -4%) scale(1.05); }
+  100% { transform: translate(0, 0) scale(1); }
+}
