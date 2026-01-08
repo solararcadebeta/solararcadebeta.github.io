@@ -1,13 +1,21 @@
 body {
   background:
-    linear-gradient(90deg, rgba(0,0,0,0.04) 1px, transparent 1px),
-    linear-gradient(0deg, rgba(0,0,0,0.04) 1px, transparent 1px),
-    linear-gradient(180deg, #f7f8fc, #eef1f7);
-  background-size: 80px 80px, 80px 80px, cover;
-  animation: gridShift 40s linear infinite;
+    radial-gradient(600px 400px at 20% 30%, rgba(120,160,255,0.12), transparent 60%),
+    radial-gradient(500px 400px at 80% 40%, rgba(255,190,120,0.12), transparent 60%),
+    radial-gradient(700px 500px at 50% 80%, rgba(140,220,180,0.10), transparent 65%),
+    linear-gradient(180deg, #212121, #212121);
+  animation: blobMove 55s ease-in-out infinite;
+  min-height: 100vh;
 }
 
-@keyframes gridShift {
-  from { background-position: 0 0, 0 0, center; }
-  to   { background-position: 80px 80px, 80px 80px, center; }
+@keyframes blobMove {
+  0% {
+    background-position: 0% 0%, 0% 0%, 0% 0%, center;
+  }
+  50% {
+    background-position: 8% 6%, -6% 4%, 5% -5%, center;
+  }
+  100% {
+    background-position: 0% 0%, 0% 0%, 0% 0%, center;
+  }
 }
