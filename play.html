@@ -28,16 +28,16 @@
   let gameUrl = params.get("gameurl");
 
   if (!gameUrl) {
-    // Use hash route instead of /
     location.replace("#/");
   } else {
-    // Decode + normalize
     gameUrl = decodeURIComponent(gameUrl);
 
-    // Remove trailing slash (unless root)
-    if (gameUrl.endsWith("/") && !gameUrl.match(/^https?:\/\/[^\/]+\/$/)) {
-      gameUrl = gameUrl.slice(0, -1);
-    }
+    // 🔥 HARD FIX:
+    // remove slash AFTER .html
+    gameUrl = gameUrl.replace(/\.html\/+$/i, ".html");
+
+    // also clean double slashes at the end
+    gameUrl = gameUrl.replace(/([^:])\/+$/, "$1");
 
     document.getElementById("gameFrame").src = gameUrl;
   }
