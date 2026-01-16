@@ -259,8 +259,8 @@
   },
   {
     "name": "Blox Fruits (Testing)",
-    "image": "https://i.pinimg.com/736x/fd/51/9e/fd519e3029ac595855acf886e642e2a9.jpg",
-    "url": "https://html5.gamedistribution.com/a0ca95e726b241f2817b028bdb32ea2a/?gd_sdk_referrer_url=https://www.kizi.com/games/blox-fruits&timestamp=-62135596800&countryCode=en&siteLocale=en&locale=en&gd_sdk_referrer_url=https%3A%2F%2Fkizi.com%2Fgames%2Fblox-fruits",
+    "image": "https://cdn-icons-png.flaticon.com/512/599/599505.png",
+    "url": "https://turbowarp.org/767817309/embed",
     "new": true
   },
   {
@@ -654,8 +654,14 @@
     "new": false
   },
   {
-    "name": "Five Nights at Wario's (FNAW)",
+    "name": "Five Nights at Patrick's (FNAP)",
     "image": "https://lucdnapp.eduwing.org/cdn/fnaw/splash.png",
+    "url": "https://scratch.mit.edu/projects/858124779/embed",
+    "new": false
+  },
+  {
+    "name": "Five Nights at Wario's (FNAW)",
+    "image": "https://cdn-icons-png.flaticon.com/512/599/599505.png",
     "url": "https://lucdnapp.eduwing.org/cdn/fnaw",
     "new": false
   },
