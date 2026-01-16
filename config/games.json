@@ -360,6 +360,12 @@
     "new": false
   },
   {
+    "name": "Clash Royale",
+    "image": "https://cdn.jsdelivr.net/gh/gn-math/covers@main/545.png",
+    "url": "https://solararcade.github.io/cdn/clash",
+    "new": false
+  },
+  {
     "name": "Cluster Rush",
     "image": "https://lucdnapp.eduwing.org/cdn/cluster-rush/splash.png",
     "url": "https://lucdnapp.eduwing.org/cdn/cluster-rush",
