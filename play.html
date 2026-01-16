@@ -24,23 +24,18 @@
     <iframe id="gameFrame" allowfullscreen="" allow="autoplay; fullscreen; camera; focus-without-user-activation *; monetization; gamepad; keyboard-map *; xr-spatial-tracking; clipboard-write" name="appFrame" scrolling="no" sandbox="allow-forms allow-modals allow-orientation-lock allow-pointer-lock allow-popups allow-popups-to-escape-sandbox allow-presentation allow-scripts allow-same-origin allow-downloads"></iframe>
 
    <script>
-  const params = new URLSearchParams(window.location.search);
-  let gameUrl = params.get("gameurl");
+      var serverUrl1 = "https://gms.parcoil.com";
+      const queryString = window.location.search;
+      const urlParams = new URLSearchParams(queryString);
+      const gameUrl = urlParams.get("gameurl");
 
-  if (!gameUrl) {
-    location.replace("#/");
-  } else {
-    gameUrl = decodeURIComponent(gameUrl);
-
-    // 🔥 HARD FIX:
-    // remove slash AFTER .html
-    gameUrl = gameUrl.replace(/\.html\/+$/i, ".html");
-
-    // also clean double slashes at the end
-    gameUrl = gameUrl.replace(/([^:])\/+$/, "$1");
-
-    document.getElementById("gameFrame").src = gameUrl;
-  }
-</script>
+      if (!gameUrl) {
+        alert("Game URL not provided!");
+        window.location.href = ""; // Redirect to homepage if game URL is missing
+      } else {
+        const embedUrl = `${gameUrl}`;
+        document.getElementById("gameFrame").src = embedUrl;
+      }
+    </script>
   </body>
 </html>
