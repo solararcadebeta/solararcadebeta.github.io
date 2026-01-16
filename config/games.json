@@ -182,7 +182,7 @@
   {
     "name": "Baldi's Basics",
     "image": "https://lucdnapp.eduwing.org/cdn/baldis-basics/splash.png",
-    "url": "https://lucdnapp.eduwing.org/cdn/baldis-basics",
+    "url": "https://solararcade.github.io/cdn/baldisbasics",
     "new": false
   },
   {
@@ -1581,6 +1581,12 @@
     "name": "Temple Run 2",
     "image": "https://lucdnapp.eduwing.org/cdn/temple-run-2/img/temple-run-2-256.png",
     "url": "https://lucdnapp.eduwing.org/cdn/temple-run-2",
+    "new": false
+  },
+  {
+    "name": "That's not my neighbor",
+    "image": "https://cdn.jsdelivr.net/gh/gn-math/covers@main/216.png",
+    "url": "https://solararcade.github.io/cdn/thatsnotmyneighbor",
     "new": false
   },
   {
