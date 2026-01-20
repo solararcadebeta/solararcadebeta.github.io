@@ -1158,12 +1158,6 @@
     "new": false
   },
   {
-    "name": "Portal",
-    "image": "https://solaar.vercel.app/cdn/portalflash/portaltheflashversion.jpg",
-    "url": "https://solararcade.github.io/cdn/portal1",
-    "new": false
-  },
-  {
     "name": "Pokemon Amnesia",
     "image": "https://cdn.jsdelivr.net/gh/gn-math/covers@main/505.png",
     "url": "https://solararcade.github.io/cdn/pokemonamnesia",
@@ -1695,12 +1689,6 @@
     "name": "Veloce",
     "image": "https://solaar.vercel.app/cdn/veloce/qN6zkD.png",
     "url": "https://solaar.vercel.app/cdn/veloce",
-    "new": false
-  },
-  {
-    "name": "Undertale",
-    "image": "https://fontmeme.com/images/undertale-font.jpg",
-    "url": "https://solararcade.github.io/cdn/undertale",
     "new": false
   },
   {
