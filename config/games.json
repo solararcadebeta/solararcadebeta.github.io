@@ -1164,6 +1164,12 @@
     "new": false
   },
   {
+    "name": "Pokemon Emerald Enhanced",
+    "image": "https://cdn.jsdelivr.net/gh/gn-math/covers@main/506.png",
+    "url": "https://solararcade.github.io/cdn/pokemonemeraldenhanced",
+    "new": false
+  },
+  {
     "name": "Precision Client",
     "image": "https://solaar.vercel.app/cdn/precision-client/logo.png",
     "url": "https://solaar.vercel.app/cdn/precision-client",
