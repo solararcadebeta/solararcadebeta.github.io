@@ -1400,7 +1400,7 @@
   {
     "name": "Solar Smash",
     "image": "https://cdn.jsdelivr.net/gh/gn-math/covers@main/118.png",
-    "url": "https://solararacde.github.io/cdn/solarsmash",
+    "url": "https://solararacde.github.io/cdn/smashredirect",
     "new": false
   },
   {
@@ -1683,6 +1683,12 @@
     "name": "Twitch Tetris",
     "image": "https://solaar.vercel.app/cdn/twitch-tetris/logo.png",
     "url": "https://solaar.vercel.app/cdn/twitch-tetris",
+    "new": false
+  },
+  {
+    "name": "Undertale",
+    "image": https://cdn.jsdelivr.net/gh/gn-math/covers@main/657.png",
+    "url": "https://solaar.vercel.app/cdn/underredirect",
     "new": false
   },
   {
