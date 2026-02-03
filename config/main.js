@@ -1,7 +1,7 @@
 // This changes the title of your site
 
 var sitename = "solar."; // Change this to change the name of your website.
-var subtext = "created by harry z - support from seb and jake"; // set the subtext
+var subtext = "i'm mc'lovin it"; // set the subtext
 
 // more settings in main.css
 
