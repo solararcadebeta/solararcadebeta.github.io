@@ -1,6 +1,6 @@
 // This changes the title of your site
 
-var sitename = "solar."; // Change this to change the name of your website.
+var sitename = ""; // Change this to change the name of your website.
 var subtext = "WE ARE BACK BABAAAAAAY!"; // set the subtext
 
 // more settings in main.css
@@ -14,7 +14,7 @@ import "/./config/custom.js";
 
 var serverUrl1 = "https://gms.parcoil.com";
 var currentPageTitle = document.title;
-document.title = `${currentPageTitle} | ${sitename}`;
+document.title = `${currentPageTitle} | solar.`;
 let gamesData = []; 
 
 function displayFilteredGames(filteredGames) {
