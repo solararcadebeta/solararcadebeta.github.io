@@ -8,6 +8,18 @@
     <link rel="stylesheet" href="config/main.css" />
     <link rel="icon" href="https://cdn-icons-png.flaticon.com/512/599/599505.png">
     <script src="config/main.js" type="module"></script>
+
+    -- HERE IS MAINTENANCE
+    <script>
+(function() {
+  const maintenanceEnd = new Date("February 26, 2026 13:00:00").getTime();
+  const now = new Date().getTime();
+
+  if (now < maintenanceEnd) {
+    window.location.href = "maintenance.html";
+  }
+})();
+</script>
   </head>
   <body>
     <div class="center">
