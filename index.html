@@ -22,22 +22,67 @@
   }
 })();
 
-      // ===== BACKGROUND ANIMATION JS =====
+/* ===== SPACE BACKGROUND ===== */
 
-// Paste the JavaScript from CodePen here
-// (Replace document.querySelector('canvas') with:)
+.space-bg {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: -1;
+  background: radial-gradient(ellipse at bottom, #0d1d31 0%, #0c0d13 100%);
+  overflow: hidden;
+}
 
-const canvas = document.getElementById("bg-animation");
-const ctx = canvas.getContext("2d");
+/* Small stars */
+.stars {
+  width: 1px;
+  height: 1px;
+  background: transparent;
+  box-shadow: 500px 200px #fff,
+              1200px 800px #fff,
+              300px 600px #fff,
+              900px 400px #fff,
+              1500px 300px #fff;
+  animation: animStar 50s linear infinite;
+}
 
-// Make canvas full screen
-canvas.width = window.innerWidth;
-canvas.height = window.innerHeight;
+/* Medium stars */
+.stars2 {
+  width: 2px;
+  height: 2px;
+  background: transparent;
+  box-shadow: 700px 100px #fff,
+              1300px 500px #fff,
+              400px 900px #fff,
+              1100px 200px #fff,
+              1600px 700px #fff;
+  animation: animStar 100s linear infinite;
+}
 
-window.addEventListener("resize", () => {
-  canvas.width = window.innerWidth;
-  canvas.height = window.innerHeight;
-});
+/* Big stars */
+.stars3 {
+  width: 3px;
+  height: 3px;
+  background: transparent;
+  box-shadow: 600px 300px #fff,
+              1400px 600px #fff,
+              200px 700px #fff,
+              1000px 900px #fff,
+              1700px 400px #fff;
+  animation: animStar 150s linear infinite;
+}
+
+@keyframes animStar {
+  from {
+    transform: translateY(0px);
+  }
+  to {
+    transform: translateY(-2000px);
+  }
+}
+
 </script>
 
 <style>
@@ -62,17 +107,15 @@ window.addEventListener("resize", () => {
   padding-top: 40vh;
   font-family: sans-serif;
 }
-
-/* Prevent scrollbars */
-body {
-  margin: 0;
-  overflow: hidden;
-}
 </style>
     
   </head>
   <body>
-    <canvas id="bg-animation"></canvas>
+    <div class="space-bg">
+      <div class="stars"></div>
+      <div class="stars2"></div>
+      <div class="stars3"></div>
+    </div>
     
     <div class="center">
       <img src="https://i.postimg.cc/02cHQHGV/output-onlinepngtools-(3).png" style="margin-left: auto; margin-right: auto; margin-top: 25px" width="10%"></img>
@@ -86,5 +129,19 @@ body {
       <a style="font-weight: 700">please do not use this for intended misbehaviour, and only use this website with permission. i am against using this in lessons. learning comes first.
       </a>
     </div>
+    
+    <script>
+    const canvas = document.getElementById("bg-animation");
+const ctx = canvas.getContext("2d");
+
+// Make canvas full screen
+canvas.width = window.innerWidth;
+canvas.height = window.innerHeight;
+
+window.addEventListener("resize", () => {
+  canvas.width = window.innerWidth;
+  canvas.height = window.innerHeight;
+});
+  </script>
   </body>
 </html>
