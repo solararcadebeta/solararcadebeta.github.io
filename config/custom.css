@@ -1,10 +1,5 @@
-/* Use San Francisco / fallback fonts */
-@font-face {
-  font-family: "San Francisco";
-  font-style: normal;
-  font-weight: 400;
-  src: local(".SFNSDisplay"), local(".SFNSDisplay-Regular"), local("San Francisco"), system-ui;
-}
+/* Import Inter font from Google Fonts */
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;700;900&display=swap');
 
 /* Game container */
 .game {
@@ -23,24 +18,42 @@
   transition: filter 0.4s ease;
 }
 
+/* Dark overlay that appears with blur */
+.game::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0,0,0,0);   /* invisible by default */
+  transition: background 0.4s ease;
+  border-radius: 15px;
+  pointer-events: none;
+}
+
 /* Overlay text (hidden by default) */
 .game p {
-  font-family: "San Francisco", -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  font-family: 'Inter', system-ui, sans-serif;
   color: white;
   font-weight: 900;           /* bold */
   font-size: 22px;            /* bigger */
   position: absolute;
-  top: 10px;                  /* top-left corner */
+  top: 10px;
   left: 10px;
   opacity: 0;
   transition: opacity 0.4s ease;
-  text-shadow: 0 0 10px rgba(0,0,0,0.6);
-  pointer-events: none;       /* text won’t block hover */
+  text-shadow: 0 0 10px rgba(0,0,0,0.7);
+  pointer-events: none;
 }
 
 /* Hover effect */
 .game:hover img {
   filter: blur(4px);
+}
+
+.game:hover::after {
+  background: rgba(0,0,0,0.3);  /* darkens blur */
 }
 
 .game:hover p {
