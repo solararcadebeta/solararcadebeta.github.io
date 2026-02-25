@@ -18,24 +18,34 @@ window.addEventListener('DOMContentLoaded', () => {
   });
 });
 
-// Wait for the DOM to load
-document.addEventListener("DOMContentLoaded", () => {
-  // Select all game elements
-  const gameElements = document.querySelectorAll("#gamesContainer .game");
+// Wait until gamesData is loaded
+function waitForGamesData() {
+  if (typeof gamesData !== "undefined" && gamesData.length > 0) {
+    applyNewTabGames();
+  } else {
+    setTimeout(waitForGamesData, 100); // check again in 100ms
+  }
+}
 
-  gameElements.forEach((gameDiv, index) => {
-    // Assuming gamesData is your array from games.json
-    const game = gamesData[index];
+// Function to update new games
+function applyNewTabGames() {
+  const gamesContainer = document.getElementById("gamesContainer");
 
-    // If the game is marked as new
-    if (game.new === true) {
-      const img = gameDiv.querySelector("img");
-      if (img) {
-        img.addEventListener("click", (e) => {
-          e.preventDefault(); // prevent default behavior
-          window.open(game.url, "_blank"); // open in new tab
-        });
+  // Go through each game in the container
+  gamesContainer.querySelectorAll(".game").forEach((gameDiv, index) => {
+    const game = gamesData[index]; // match with the gamesData array
+
+    if (game && game.new) {
+      const gameImage = gameDiv.querySelector("img");
+      if (gameImage) {
+        // Override click to open in a new tab
+        gameImage.onclick = () => {
+          window.open(game.url, "_blank");
+        };
       }
     }
   });
-});
+}
+
+// Start waiting
+waitForGamesData();
