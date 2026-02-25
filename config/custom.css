@@ -1,57 +1,74 @@
-/* ===== GAME CARDS - FROSTED GLASS ===== */
-
+/* ===== VAPOR GAME CARDS ===== */
 #gamesContainer {
   display: flex;
   flex-wrap: wrap;
-  gap: 20px;
+  gap: 30px;
   justify-content: center;
-  padding: 40px;
+  padding: 50px 20px;
 }
 
-/* Each game card */
+/* Card base */
 .game {
-  background: rgba(255, 255, 255, 0.08); /* frosted glass base */
-  backdrop-filter: blur(12px);
-  -webkit-backdrop-filter: blur(12px);
-  border-radius: 20px;
-  padding: 15px;
-  transition: all 0.3s ease;
-  border: 1px solid rgba(255, 255, 255, 0.15);
+  background: rgba(255, 255, 255, 0.08); /* frosted glass */
+  backdrop-filter: blur(18px); 
+  -webkit-backdrop-filter: blur(18px);
+  border-radius: 25px;
+  padding: 20px;
+  border: 1px solid rgba(255,255,255,0.2);
+  box-shadow: 0 0 30px rgba(0,255,255,0.2), 0 0 60px rgba(255,0,255,0.1);
   cursor: pointer;
   text-align: center;
+  transition: all 0.35s ease;
 }
 
-/* Slight lift and stronger frosted effect on hover */
+/* Card hover effect */
 .game:hover {
-  transform: translateY(-6px);
+  transform: translateY(-8px) scale(1.03);
   background: rgba(255, 255, 255, 0.15);
+  box-shadow: 0 0 50px rgba(0,255,255,0.4), 0 0 80px rgba(255,0,255,0.25);
 }
 
-/* Game images - blur by default */
+/* Images - blurred until hover */
 .game img {
-  width: 200px; /* adjust to your liking */
+  width: 200px;
   height: auto;
-  border-radius: 15px;
-  filter: blur(3px);
-  transition: filter 0.3s ease, transform 0.3s ease;
+  border-radius: 18px;
+  filter: blur(4px);
+  transition: filter 0.3s ease, transform 0.35s ease;
 }
 
-/* Remove blur + slight zoom on hover */
+/* Remove blur + subtle zoom on hover */
 .game:hover img {
-  filter: blur(0px);
-  transform: scale(1.05);
+  filter: blur(0);
+  transform: scale(1.08);
 }
 
-/* Game names */
+/* Game name styling */
 .game p {
-  margin-top: 10px;
+  margin-top: 12px;
   color: #fff;
-  font-weight: 500;
-  font-family: sans-serif;
+  font-weight: 600;
+  font-family: 'Segoe UI', 'Open Sans', sans-serif;
+  text-shadow: 0 0 8px rgba(255,255,255,0.3);
 }
 
-/* Ensure cards sit above background */
-#gamesContainer, .game, .footer {
-  position: relative;
-  z-index: 1;
+/* Vapor search input */
+#searchInput {
+  padding: 12px 20px;
+  border-radius: 15px;
+  border: 1px solid rgba(255,255,255,0.2);
+  background: rgba(255,255,255,0.05);
+  backdrop-filter: blur(15px);
+  color: #fff;
+  font-size: 16px;
+  outline: none;
+  width: 250px;
+  transition: all 0.3s ease;
+  text-align: center;
+  box-shadow: 0 0 20px rgba(0,255,255,0.1), 0 0 40px rgba(255,0,255,0.1);
+}
+
+#searchInput:focus {
+  background: rgba(255,255,255,0.12);
+  box-shadow: 0 0 30px rgba(0,255,255,0.25), 0 0 60px rgba(255,0,255,0.2);
 }
