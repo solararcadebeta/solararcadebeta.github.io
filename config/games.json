@@ -1,5 +1,23 @@
 [
   {
+    "name": "Watch",
+    "image": "https://i.postimg.cc/zGCgk3p5/Untitled-design-(3).png",
+    "url": "https://vapor.my/page/media",
+    "new": false
+  },
+  {
+    "name": "Listen",
+    "image": "https://i.postimg.cc/7Yg3KBZf/Untitled-design-(4).png",
+    "url": "https://vapor.my/page/music",
+    "new": false
+  },
+  {
+    "name": "AI",
+    "image": "https://i.postimg.cc/7LT0TXdD/Untitled-design-(5).png",
+    "url": "https://vapor.my/page/ai/index.html,
+    "new": false
+  },
+  {
     "name": "1v1lol",
     "image": "https://cdn.jsdelivr.net/gh/mathlesson/mathlesson.github.io/1v1.lol-old.webp",
     "url": "https://solararcade.github.io/cdn/1v1lol",
