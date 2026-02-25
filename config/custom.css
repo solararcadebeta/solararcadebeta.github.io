@@ -1,1 +1,50 @@
+/* Use San Francisco / fallback fonts */
+@font-face {
+  font-family: "San Francisco";
+  font-style: normal;
+  font-weight: 400;
+  src: local(".SFNSDisplay"), local(".SFNSDisplay-Regular"), local("San Francisco"), system-ui;
+}
 
+/* Game container */
+.game {
+  position: relative;
+  width: 200px;
+  margin: 20px;
+  cursor: pointer;
+  overflow: hidden;
+  border-radius: 15px;
+}
+
+/* Game image */
+.game img {
+  width: 100%;
+  display: block;
+  transition: filter 0.4s ease;
+}
+
+/* Overlay text (hidden by default) */
+.game p {
+  font-family: "San Francisco", -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  color: white;
+  font-weight: 600;
+  font-size: 18px;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  opacity: 0;
+  transition: opacity 0.4s ease;
+  text-align: center;
+  text-shadow: 0 0 10px rgba(0,0,0,0.6);
+  pointer-events: none; /* text won’t block hover */
+}
+
+/* Hover effect */
+.game:hover img {
+  filter: blur(4px);
+}
+
+.game:hover p {
+  opacity: 1;
+}
