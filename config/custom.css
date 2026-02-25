@@ -27,17 +27,15 @@
 .game p {
   font-family: "San Francisco", -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
   color: white;
-  font-weight: 600;
-  font-size: 18px;
+  font-weight: 900;           /* bold */
+  font-size: 22px;            /* bigger */
   position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
+  top: 10px;                  /* top-left corner */
+  left: 10px;
   opacity: 0;
   transition: opacity 0.4s ease;
-  text-align: center;
   text-shadow: 0 0 10px rgba(0,0,0,0.6);
-  pointer-events: none; /* text won’t block hover */
+  pointer-events: none;       /* text won’t block hover */
 }
 
 /* Hover effect */
