@@ -1,16 +1,16 @@
 /* Import Inter font from Google Fonts */
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;700;900&display=swap');
 
-/* Game container (slightly wider, vapor style) */
+/* Game container (wider & taller, vapor style) */
 .game {
   position: relative;
-  width: 240px;               /* slightly wider than before */
-  height: 140px;              /* fixed height for consistency */
+  width: 240px;             /* slightly wide */
+  height: 160px;            /* taller than before */
   margin: 20px;
   cursor: pointer;
   overflow: hidden;
   border-radius: 18px;
-  background: #111;           /* subtle dark background */
+  background: #111;         /* subtle dark background */
   box-shadow: 0 8px 20px rgba(0,0,0,0.3);
   transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
@@ -21,11 +21,12 @@
   box-shadow: 0 12px 25px rgba(0,0,0,0.5);
 }
 
-/* Game image (fill container without stretching) */
+/* Game image (centered, fills container without stretching) */
 .game img {
   width: 100%;
   height: 100%;
-  object-fit: cover;          /* fills container while maintaining aspect ratio */
+  object-fit: cover;       /* fills container maintaining aspect ratio */
+  object-position: center; /* keeps image centered */
   display: block;
   transition: filter 0.4s ease;
   border-radius: 18px;
@@ -66,7 +67,7 @@
 }
 
 .game:hover::after {
-  background: rgba(0,0,0,0.25);  /* subtle darkening */
+  background: rgba(0,0,0,0.25);  /* subtle dark overlay */
 }
 
 .game:hover p {
