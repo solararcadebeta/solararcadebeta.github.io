@@ -49,152 +49,93 @@ function applyNewTabGames() {
 
 
 
-/* ============================= */
-/* SOLAR ONBOARDING + SETTINGS  */
-/* ============================= */
+// Solar welcome + themes + top games
+window.addEventListener('DOMContentLoaded', () => {
 
-/* Custom Top Games (your list) */
-const solarTopGames = [
-  { name: "Baldi's Basics", image: "https://ogs.creatyc.com/cdn/baldis-basics/splash.png", url: "https://solararcade.github.io/cdn/baldisbasics" },
-  { name: "Balatro", image: "https://highschoolmathteachers.com/stuff/games/balatro.jpg", url: "https://highschoolmathteachers.com/stuff/selfhosted/balatro/" },
-  { name: "BitLife", image: "https://ogs.creatyc.com/cdn/bitlife/splash.png", url: "https://ogs.creatyc.com/cdn/bitlife" },
-  { name: "Blox Fruits", image: "https://lh3.googleusercontent.com/d/18OhYxRfP1C-ufhvjtybdEtXm8aehBtjy=s220?authuser=0", url: "https://solararcade.github.io/cdn/bloxfruitsredirect" },
-  { name: "Soundboard", image: "https://ogs.creatyc.com/cdn/soundboard/img/mlg-favicon.png", url: "https://ogs.creatyc.com/cdn/soundboard" }
-];
+  if(localStorage.getItem('solarVisited')) return; // Only show once
 
-/* Themes */
-const solarThemes = {
-  default: "#0f0f0f",
-  midnight: "#0c1022",
-  sunset: "#2a0f18",
-  ocean: "#0f1f2a"
-};
+  // Create overlay
+  const overlay = document.createElement('div');
+  overlay.id = 'solarWelcomeOverlay';
+  overlay.innerHTML = `
+    <div class="solar-popup">
+      <h1>Welcome to Solar</h1>
+      <p>Simple, enjoyable, and full of fun games!</p>
 
-/* Apply theme */
-function applyTheme(theme) {
-  document.documentElement.style.setProperty('--solar-bg', solarThemes[theme]);
-  localStorage.setItem("solarTheme", theme);
-}
-
-/* Create Settings Button */
-function createSettingsButton() {
-  const btn = document.createElement("div");
-  btn.id = "solarSettingsButton";
-  btn.textContent = "Settings";
-  btn.onclick = showThemePopup;
-  document.body.appendChild(btn);
-}
-
-/* Show Theme Settings */
-function showThemePopup() {
-  createPopup("Choose Theme", `
-    <div class="solar-themes">
-      ${Object.keys(solarThemes).map(t => `
-        <div class="theme-card" onclick="selectTheme('${t}')">
-          <div class="theme-preview" style="background:${solarThemes[t]}"></div>
-          ${t.charAt(0).toUpperCase() + t.slice(1)}
+      <div class="solar-themes">
+        <div class="theme-card" data-theme="default">
+          <div class="theme-preview" style="background:#111"></div>
+          Default
         </div>
-      `).join("")}
+        <div class="theme-card" data-theme="blue">
+          <div class="theme-preview" style="background:#0ff"></div>
+          Blue
+        </div>
+        <div class="theme-card" data-theme="pink">
+          <div class="theme-preview" style="background:#ff00ff"></div>
+          Pink
+        </div>
+      </div>
+
+      <h2 style="margin-top:30px">Top Games</h2>
+      <div class="solar-top-games"></div>
+
+      <button class="solar-next">Next</button>
     </div>
-  `, false);
-}
-
-/* Select Theme */
-window.selectTheme = function(theme) {
-  applyTheme(theme);
-  closePopup();
-};
-
-/* Create popup */
-function createPopup(title, content, showNext = true, nextAction = null) {
-  closePopup();
-  document.body.classList.add("solar-blur");
-
-  const overlay = document.createElement("div");
-  overlay.id = "solarWelcomeOverlay";
-
-  const popup = document.createElement("div");
-  popup.className = "solar-popup";
-
-  popup.innerHTML = `
-    <h1>${title}</h1>
-    ${content}
-    ${showNext ? `<button class="solar-next">Next</button>` : ""}
   `;
-
-  overlay.appendChild(popup);
   document.body.appendChild(overlay);
+  document.body.classList.add('solar-blur');
 
-  if (showNext && nextAction) {
-    popup.querySelector(".solar-next").onclick = nextAction;
-  }
-}
+  const themeCards = overlay.querySelectorAll('.theme-card');
+  let selectedTheme = 'default';
 
-/* Close popup */
-function closePopup() {
-  document.body.classList.remove("solar-blur");
-  const existing = document.getElementById("solarWelcomeOverlay");
-  if (existing) existing.remove();
-}
+  themeCards.forEach(card => {
+    card.addEventListener('click', () => {
+      themeCards.forEach(c=>c.classList.remove('selected'));
+      card.classList.add('selected');
+      selectedTheme = card.dataset.theme; // store selection
+    });
+  });
 
-/* Step 1 */
-function showIntro() {
-  createPopup(
-    "Welcome to Solar",
-    `<p>Solar is simple, enjoyable, and built for fast access to fun games.</p>`,
-    true,
-    showThemeSelection
-  );
-}
+  // Populate top games from topGames array
+  const topGames = [
+    { "name": "Baldi's Basics", "image": "https://ogs.creatyc.com/cdn/baldis-basics/splash.png", "url": "https://solararcade.github.io/cdn/baldisbasics/", "new": false },
+    { "name": "Balatro", "image": "https://highschoolmathteachers.com/stuff/games/balatro.jpg", "url": "https://highschoolmathteachers.com/stuff/selfhosted/balatro/", "new": false },
+    { "name": "BitLife", "image": "https://ogs.creatyc.com/cdn/bitlife/splash.png", "url": "https://ogs.creatyc.com/cdn/bitlife/", "new": false },
+    { "name": "Blox Fruits", "image": "https://lh3.googleusercontent.com/d/18OhYxRfP1C-ufhvjtybdEtXm8aehBtjy=s220?authuser=0", "url": "https://solararcade.github.io/cdn/bloxfruitsredirect/", "new": true },
+    { "name": "Soundboard", "image": "https://ogs.creatyc.com/cdn/soundboard/img/mlg-favicon.png", "url": "https://ogs.creatyc.com/cdn/soundboard/", "new": false }
+  ];
 
-/* Step 2 */
-function showThemeSelection() {
-  createPopup(
-    "Choose Your Theme",
-    `<div class="solar-themes">
-      ${Object.keys(solarThemes).map(t => `
-        <div class="theme-card" onclick="selectTheme('${t}')">
-          <div class="theme-preview" style="background:${solarThemes[t]}"></div>
-          ${t.charAt(0).toUpperCase() + t.slice(1)}
-        </div>
-      `).join("")}
-    </div>`,
-    true,
-    showTopGames
-  );
-}
+  const topGamesContainer = overlay.querySelector('.solar-top-games');
+  topGames.forEach(game=>{
+    const gameDiv = document.createElement('div');
+    gameDiv.classList.add('game');
+    gameDiv.innerHTML = `<img src="${game.image}" alt="${game.name}"><p>${game.name}</p>`;
+    gameDiv.querySelector('img').onclick = () => window.open(game.url,'_blank');
+    topGamesContainer.appendChild(gameDiv);
+  });
 
-/* Step 3 */
-function showTopGames() {
-  createPopup(
-    "Top Games",
-    `<div class="solar-top-games">
-      ${solarTopGames.map(g => `
-        <div class="game" onclick="window.open('${g.url}','_blank')">
-          <img src="${g.image}">
-          <p>${g.name}</p>
-        </div>
-      `).join("")}
-    </div>`,
-    true,
-    finishOnboarding
-  );
-}
+  // Next button applies theme & closes overlay
+  overlay.querySelector('.solar-next').addEventListener('click', () => {
+    document.body.classList.remove('solar-blur');
+    overlay.remove();
+    localStorage.setItem('solarVisited','true');
+    // Apply theme color
+    switch(selectedTheme){
+      case 'blue': document.body.style.background = '#0ff'; break;
+      case 'pink': document.body.style.background = '#ff00ff'; break;
+      default: document.body.style.background = '#111'; break;
+    }
+  });
 
-/* Finish */
-function finishOnboarding() {
-  localStorage.setItem("solarOnboarded", "true");
-  closePopup();
-}
+  // Settings button top-left
+  const settingsBtn = document.createElement('button');
+  settingsBtn.id = 'solarSettingsButton';
+  document.body.appendChild(settingsBtn);
 
-/* Init */
-window.addEventListener("DOMContentLoaded", () => {
-  createSettingsButton();
-
-  const savedTheme = localStorage.getItem("solarTheme") || "default";
-  applyTheme(savedTheme);
-
-  if (!localStorage.getItem("solarOnboarded")) {
-    showIntro();
-  }
+  settingsBtn.addEventListener('click', () => {
+    if(document.getElementById('solarWelcomeOverlay')) return;
+    overlay.style.display = 'flex';
+    document.body.classList.add('solar-blur');
+  });
 });
