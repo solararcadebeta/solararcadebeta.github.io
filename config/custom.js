@@ -49,14 +49,18 @@ function applyNewTabGames() {
 
 
 
-// Solar welcome + themes + top games
 window.addEventListener('DOMContentLoaded', () => {
 
-  if(localStorage.getItem('solarVisited')) return; // Only show once
+  // Check for dev tutorial query
+  const urlParams = new URLSearchParams(window.location.search);
+  const forceTutorial = urlParams.get('dev') === 'tutorial';
+
+  if(localStorage.getItem('solarVisited') && !forceTutorial) return; // only show once unless forced
 
   // Create overlay
   const overlay = document.createElement('div');
   overlay.id = 'solarWelcomeOverlay';
+  overlay.style.display = 'flex';
   overlay.innerHTML = `
     <div class="solar-popup">
       <h1>Welcome to Solar</h1>
@@ -93,17 +97,17 @@ window.addEventListener('DOMContentLoaded', () => {
     card.addEventListener('click', () => {
       themeCards.forEach(c=>c.classList.remove('selected'));
       card.classList.add('selected');
-      selectedTheme = card.dataset.theme; // store selection
+      selectedTheme = card.dataset.theme;
     });
   });
 
   // Populate top games from topGames array
   const topGames = [
-    { "name": "Baldi's Basics", "image": "https://ogs.creatyc.com/cdn/baldis-basics/splash.png", "url": "https://solararcade.github.io/cdn/baldisbasics/", "new": false },
+    { "name": "Baldi's Basics", "image": "https://ogs.creatyc.com/cdn/baldis-basics/splash.png", "url": "https://solararcade.github.io/cdn/baldisbasics", "new": false },
     { "name": "Balatro", "image": "https://highschoolmathteachers.com/stuff/games/balatro.jpg", "url": "https://highschoolmathteachers.com/stuff/selfhosted/balatro/", "new": false },
-    { "name": "BitLife", "image": "https://ogs.creatyc.com/cdn/bitlife/splash.png", "url": "https://ogs.creatyc.com/cdn/bitlife/", "new": false },
-    { "name": "Blox Fruits", "image": "https://lh3.googleusercontent.com/d/18OhYxRfP1C-ufhvjtybdEtXm8aehBtjy=s220?authuser=0", "url": "https://solararcade.github.io/cdn/bloxfruitsredirect/", "new": true },
-    { "name": "Soundboard", "image": "https://ogs.creatyc.com/cdn/soundboard/img/mlg-favicon.png", "url": "https://ogs.creatyc.com/cdn/soundboard/", "new": false }
+    { "name": "BitLife", "image": "https://ogs.creatyc.com/cdn/bitlife/splash.png", "url": "https://ogs.creatyc.com/cdn/bitlife", "new": false },
+    { "name": "Blox Fruits", "image": "https://lh3.googleusercontent.com/d/18OhYxRfP1C-ufhvjtybdEtXm8aehBtjy=s220?authuser=0", "url": "https://solararcade.github.io/cdn/bloxfruitsredirect", "new": true },
+    { "name": "Soundboard", "image": "https://ogs.creatyc.com/cdn/soundboard/img/mlg-favicon.png", "url": "https://ogs.creatyc.com/cdn/soundboard", "new": false }
   ];
 
   const topGamesContainer = overlay.querySelector('.solar-top-games');
@@ -128,14 +132,14 @@ window.addEventListener('DOMContentLoaded', () => {
     }
   });
 
-  // Settings button top-left
+  // Settings button
   const settingsBtn = document.createElement('button');
   settingsBtn.id = 'solarSettingsButton';
   document.body.appendChild(settingsBtn);
 
   settingsBtn.addEventListener('click', () => {
-    if(document.getElementById('solarWelcomeOverlay')) return;
     overlay.style.display = 'flex';
     document.body.classList.add('solar-blur');
   });
+
 });
