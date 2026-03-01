@@ -132,6 +132,12 @@
     "new": false
   },
   {
+    "name": "Amanda The Adventurer",
+    "image": "https://cdn.jsdelivr.net/gh/gn-math/covers@main/450.png",
+    "url": "https://solararcade.github.io/cdn/amandatheadventurer",
+    "new": false
+  },
+  {
     "name": "Amidst the Clouds",
     "image": "https://ogs.creatyc.com/cdn/amidst-the-clouds/splash.png",
     "url": "https://ogs.creatyc.com/cdn/amidst-the-clouds",
@@ -351,6 +357,12 @@
     "name": "Cars Simulator",
     "image": "https://ogs.creatyc.com/cdn/cars-simulator/splash.png",
     "url": "https://ogs.creatyc.com/cdn/cars-simulator",
+    "new": false
+  },
+  {
+    "name": "Celeste",
+    "image": "https://cdn.jsdelivr.net/gh/gn-math/covers@main/623.png",
+    "url": "https://solararcade.github.io/cdn/celeste",
     "new": false
   },
   {
@@ -699,6 +711,12 @@
     "name": "Five Nights at Freddy's 2 (FNAF 2)",
     "image": "https://cdn.jsdelivr.net/gh/gn-math/covers@main/39.png",
     "url": "https://solararcade.github.io/cdn/fnaf2",
+    "new": false
+  },
+  {
+    "name": "FNAF World",
+    "image": "https://cdn.jsdelivr.net/gh/gn-math/covers@main/190.png",
+    "url": "https://solararcade.github.io/cdn/fnafworld",
     "new": false
   },
   {
